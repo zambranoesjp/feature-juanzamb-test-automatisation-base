@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"Test worker","id":1}];
+var items = [{"id":1,"group":1,"content":"karate-test[1:9]","start":1750440844484,"end":1750440847530,"title":"karate-test[1:9] 12:34:04.484-12:34:07.530 T-API-HU-01-CA01-Character Verify 200, array empty"},{"id":2,"group":1,"content":"karate-test[2:16]","start":1750440847547,"end":1750440850085,"title":"karate-test[2:16] 12:34:07.547-12:34:10.085 T-API-HU-01-CA02-Character add Character and get by (Id)"},{"id":3,"group":1,"content":"karate-test[3:37]","start":1750440850106,"end":1750440851335,"title":"karate-test[3:37] 12:34:10.106-12:34:11.335 T-API-HU-01-CA03-Character id not found"},{"id":4,"group":1,"content":"karate-test[4:44]","start":1750440851359,"end":1750440852581,"title":"karate-test[4:44] 12:34:11.359-12:34:12.581 T-API-HU-01-CA04-Character add character Iron Man"},{"id":5,"group":1,"content":"karate-test[5:60]","start":1750440852600,"end":1750440855046,"title":"karate-test[5:60] 12:34:12.600-12:34:15.046 T-API-HU-01-CA05-Character add character exitsts"},{"id":6,"group":1,"content":"karate-test[6:90]","start":1750440855068,"end":1750440856289,"title":"karate-test[6:90] 12:34:15.068-12:34:16.289 T-API-HU-01-CA06-Character Add character without requiaired params"},{"id":7,"group":1,"content":"karate-test[7:109]","start":1750440856308,"end":1750440858750,"title":"karate-test[7:109] 12:34:16.308-12:34:18.750 T-API-HU-01-CA07-Character Save character"},{"id":8,"group":1,"content":"karate-test[8:140]","start":1750440858764,"end":1750440859975,"title":"karate-test[8:140] 12:34:18.764-12:34:19.975 T-API-HU-01-CA08-Character Update character thats not exists"},{"id":9,"group":1,"content":"karate-test[9:157]","start":1750440859990,"end":1750440862408,"title":"karate-test[9:157] 12:34:19.990-12:34:22.408 T-API-HU-01-CA09-Character add and delete character"},{"id":10,"group":1,"content":"karate-test[10:178]","start":1750440862425,"end":1750440863648,"title":"karate-test[10:178] 12:34:22.425-12:34:23.648 T-API-HU-01-CA10-Character Delete Character that not exists"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
